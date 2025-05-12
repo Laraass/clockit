@@ -22,11 +22,4 @@ import { FormsModule } from '@angular/forms';
 })
 export class AppComponent {
   title = 'clockit';
-  inputValue: string = '';
-  emailValue: string = '';
-  passwordValue: string = '';
-  amountValue: string = '';
-  dateOfBirth: string = '';
-  descriptionValue: string = '';
-  password: string = '';
 }
