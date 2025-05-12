@@ -1,5 +1,11 @@
 import { CommonModule } from '@angular/common';
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import {
+  Component,
+  CUSTOM_ELEMENTS_SCHEMA,
+  EventEmitter,
+  Input,
+  Output,
+} from '@angular/core';
 import { FormsModule } from '@angular/forms';
 
 type InputType =
@@ -15,6 +21,7 @@ type InputType =
   standalone: true,
   imports: [CommonModule, FormsModule],
   templateUrl: './inputfield.component.html',
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class InputfieldComponent {
   @Input() inputType: InputType = 'text';
