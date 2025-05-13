@@ -1,11 +1,13 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-task',
-  imports: [],
+  imports: [RouterLink],
   templateUrl: './task.component.html',
-  styleUrl: './task.component.css'
 })
 export class TaskComponent {
-
+  @Input() task: string = '';
+  @Input() id: string = '';
+  @Input() link: string = '';
 }
