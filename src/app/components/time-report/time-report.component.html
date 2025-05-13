@@ -1,0 +1,20 @@
+<div 
+  (click)="navigateToReport()" 
+  class="cursor-pointer time-report bg-off-white text-shade-800 w-full rounded-md 
+         shadow-[0px_4px_4px_0px_rgba(0,0,0,0.25)] p-4 flex flex-col gap-1 
+         hover:outline-2 hover:outline-shade-200 
+         active:outline-2 active:outline-shade-200 
+         transition-shadow duration-300" 
+  [attr.data-id]="projectId">
+
+  <div class="flex justify-between items-start">
+    <h2 class="font-bold">{{ project }}</h2>
+    <div class="flex gap-2">
+      <app-edit-button [reportId]="projectId"></app-edit-button>
+      <app-delete-button [projectId]="projectId"></app-delete-button>
+    </div>
+  </div>
+
+  <p class="text-[12px] text-shade-200">{{ formattedDate }}, {{ hoursWorked }}h</p>
+  <p class="text-[12px] text-shade-200 line-clamp-3">{{ description }}</p>
+</div>
