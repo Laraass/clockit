@@ -2,7 +2,8 @@ import { Component, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-button',
-  templateUrl: './button.component.html'
+  templateUrl: './button.component.html',
+  standalone: true
 })
 export class ButtonComponent {
   @Input() text: string = 'Click me';
