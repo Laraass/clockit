@@ -30,6 +30,8 @@ export class InputfieldComponent {
   @Input() title?: string;
   @Input() placeholder: string = '';
   @Input() icon?: string;
+
+  // Two-way binding value & valueChange
   @Input() value: string = '';
   @Output() valueChange = new EventEmitter<string>();
 
@@ -40,17 +42,13 @@ export class InputfieldComponent {
     return this.showPassword ? 'text' : 'password';
   }
 
-  get isPassword(): boolean {
-    return this.inputType === 'password';
-  }
-
-  // Email validation
-  get isValidEmail(): boolean {
-    return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(this.value);
-  }
-
-  // Password toggle
   togglePasswordVisibility(): void {
     this.showPassword = !this.showPassword;
+  }
+
+  // Value change in input field
+  onValueChange(newValue: string) {
+    this.value = newValue;
+    this.valueChange.emit(newValue);
   }
 }

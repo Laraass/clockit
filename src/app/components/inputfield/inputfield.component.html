@@ -6,9 +6,10 @@
     *ngIf="type === 'description'"
     [attr.name]="name"
     [placeholder]="placeholder"
+    [ngModel]="value"
+    (ngModelChange)="onValueChange($event)"
     class="w-full p-2 rounded-md bg-off-white placeholder-shade-200 text-shade-800 text-base min-h-16 max-h-64 resize-y shadow-[0px_4px_4px_0px_rgba(0,0,0,0.25)] border-2 border-transparent focus:outline-none focus:border-shade-200"
-    >{{ value }}</textarea
-  >
+  ></textarea>
 
   <!-- Password input -->
   <div
@@ -19,7 +20,8 @@
       [attr.name]="name"
       [type]="currentInputType"
       [placeholder]="placeholder"
-      [(ngModel)]="value"
+      [ngModel]="value"
+      (ngModelChange)="onValueChange($event)"
       class="flex-1 bg-transparent placeholder-shade-200 text-shade-600 focus:outline-none"
     />
     <span
@@ -38,7 +40,8 @@
     [attr.name]="name"
     type="number"
     [placeholder]="placeholder"
-    [value]="value"
+    [ngModel]="value"
+    (ngModelChange)="onValueChange($event)"
     step="0.1"
     class="w-full p-2 rounded-md bg-off-white placeholder-shade-200 text-shade-800 shadow-[0px_4px_4px_0px_rgba(0,0,0,0.25)] border-2 border-transparent focus:outline-none focus:border-shade-200"
   />
@@ -49,7 +52,8 @@
     [attr.name]="name"
     type="date"
     [placeholder]="placeholder"
-    [value]="value"
+    [ngModel]="value"
+    (ngModelChange)="onValueChange($event)"
     class="w-full p-2 rounded-md bg-off-white placeholder-shade-200 text-shade-800 shadow-[0px_4px_4px_0px_rgba(0,0,0,0.25)] border-2 border-transparent focus:outline-none focus:border-shade-200"
   />
 
@@ -62,7 +66,8 @@
     [attr.name]="name"
     type="text"
     [placeholder]="placeholder"
-    [value]="value"
+    [ngModel]="value"
+    (ngModelChange)="onValueChange($event)"
     class="w-full p-2 rounded-md bg-off-white placeholder-shade-200 text-shade-800 shadow-[0px_4px_4px_0px_rgba(0,0,0,0.25)] border-2 border-transparent focus:outline-none focus:border-shade-200"
   />
 </div>
