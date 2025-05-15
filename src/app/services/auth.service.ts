@@ -4,7 +4,7 @@ import { Observable, BehaviorSubject } from 'rxjs';
 import { environment } from 'environments/environment';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class AuthService {
   private authStatusSubject = new BehaviorSubject<boolean>(this.hasToken());
@@ -12,12 +12,14 @@ export class AuthService {
 
   constructor(private http: HttpClient) {}
 
+  // Log in
   login(credentials: any): Observable<any> {
-    return this.http.post(`${environment.apiUrl}/login`, credentials);
+    return this.http.post(`${environment.apiUrl}/users/login`, credentials);
   }
 
+  // Register
   register(userData: any): Observable<any> {
-    return this.http.post(`${environment.apiUrl}/register`, userData);
+    return this.http.post(`${environment.apiUrl}/users/register`, userData);
   }
 
   saveToken(token: string): void {
