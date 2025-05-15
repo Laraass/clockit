@@ -39,7 +39,7 @@ export class LoginComponent {
           this.authService.saveToken(res.token);
         }
 
-        this.router.navigate(['/']); // add route to home page
+        this.router.navigate(['/home']);
       },
       error: (err) => {
         console.error('Login failed:', err);
