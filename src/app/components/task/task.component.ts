@@ -5,6 +5,7 @@ import { RouterLink } from '@angular/router';
   selector: 'app-task',
   imports: [RouterLink],
   templateUrl: './task.component.html',
+  standalone: true
 })
 export class TaskComponent {
   @Input() task: string = '';
