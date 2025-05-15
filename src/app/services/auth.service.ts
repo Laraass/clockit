@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable, BehaviorSubject } from 'rxjs';
 import { environment } from 'environments/environment';
+import { LoginCredentials, LoginResponse } from './auth.types';
 
 @Injectable({
   providedIn: 'root',
@@ -13,8 +14,11 @@ export class AuthService {
   constructor(private http: HttpClient) {}
 
   // Log in
-  login(credentials: any): Observable<any> {
-    return this.http.post(`${environment.apiUrl}/users/login`, credentials);
+  login(credentials: LoginCredentials): Observable<LoginResponse> {
+    return this.http.post<LoginResponse>(
+      `${environment.apiUrl}/users/login`,
+      credentials
+    );
   }
 
   // Register
