@@ -1,1 +1,55 @@
-<p>login works!</p>
+<section
+  class="mx-auto w-full max-w-md bg-gray-100 rounded-lg shadow-md mt-16 p-8 flex flex-col gap-4"
+>
+  <h1 class="text-2xl font-bold text-shade-800 text-center">
+    Sign in to your account
+  </h1>
+
+  <form
+    (ngSubmit)="onSubmit()"
+    #signInForm="ngForm"
+    class="flex flex-col gap-6"
+  >
+    <p
+      *ngIf="errorMessage"
+      class="text-red-600 text-sm text-center font-medium"
+    >
+      {{ errorMessage }}
+    </p>
+
+    <app-inputfield
+      title="Email address"
+      name="email"
+      placeholder="example@gmail.com"
+      inputType="email"
+      [(value)]="user.email"
+      required
+    ></app-inputfield>
+
+    <app-inputfield
+      title="Password"
+      name="password"
+      placeholder="********"
+      inputType="password"
+      [(value)]="user.password"
+      required
+    ></app-inputfield>
+
+    <app-button
+      text="Sign in"
+      variant="submit-button"
+      type="submit"
+      class="w-full flex justify-center"
+    ></app-button>
+
+    <p class="text-center text-sm">
+      Don’t have an account?
+      <a
+        routerLink="/register"
+        class="underline cursor-pointer text-shade-800 hover:scale-105 active:scale-95 transition-transform duration-300"
+      >
+        Sign up
+      </a>
+    </p>
+  </form>
+</section>
