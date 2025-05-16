@@ -1,0 +1,53 @@
+<section class="w-full flex flex-col gap-4">
+  <app-back-button page="Home"></app-back-button>
+  <h1 class="text-2xl font-bold text-shade-800">Create time report</h1>
+  <form
+    (ngSubmit)="onSubmit()"
+    #createForm="ngForm"
+    class="flex flex-col gap-4"
+  >
+    <p *ngIf="errorMessage" class="text-red-600 text-sm font-medium">
+      {{ errorMessage }}
+    </p>
+    <app-inputfield
+      [(value)]="formData.project"
+      inputType="text"
+      placeholder="Enter project name"
+      title="Project"
+    ></app-inputfield>
+
+    <app-inputfield
+      [(value)]="formData.date"
+      inputType="date"
+      placeholder="Enter date"
+      title="Date"
+    ></app-inputfield>
+
+    <app-inputfield
+      [(value)]="formData.hoursWorked"
+      inputType="number"
+      placeholder="Enter hours worked"
+      title="Hours worked"
+    ></app-inputfield>
+
+    <app-inputfield
+      [(value)]="formData.description"
+      type="description"
+      inputType="description"
+      placeholder="Enter project description"
+      title="Description"
+    ></app-inputfield>
+
+    <div class="flex flex-row gap-3 items-center">
+      <app-button text="Create time report" type="submit"></app-button>
+
+      <span
+        id="cancel"
+        class="text-shade-800 hover:text-red-600 cursor-pointer hover:underline active:underline"
+        (click)="onCancel()"
+      >
+        Cancel
+      </span>
+    </div>
+  </form>
+</section>
