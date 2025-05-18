@@ -1,0 +1,22 @@
+<section class="w-full flex flex-col gap-4">
+  <app-back-button page="Home"></app-back-button>
+  <h1 class="text-2xl font-bold text-shade-800">All time reports</h1>
+
+  <p *ngIf="errorMessage" class="text-red-600 font-medium">
+    {{ errorMessage }}
+  </p>
+
+  <div *ngIf="reports.length > 0; else noReports" class="flex flex-col gap-4">
+    <app-time-report
+      *ngFor="let report of reports"
+      [project]="report.project"
+      [date]="report.date"
+      [hoursWorked]="report.hoursWorked"
+      [description]="report.description"
+    ></app-time-report>
+  </div>
+
+  <ng-template #noReports>
+    <p class="text-shade-700 italic">No time reports found.</p>
+  </ng-template>
+</section>
