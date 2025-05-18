@@ -7,14 +7,15 @@
          transition-shadow duration-300" 
   [attr.data-id]="projectId">
 
-  <div class="flex justify-between items-start">
-    <h2 class="font-bold">{{ project }}</h2>
-    <div class="flex gap-2">
+  <div class="flex justify-between items-center gap-4">
+    <h2 class="font-bold line-clamp-1">{{ project }}</h2>
+
+    <div class="flex gap-2 items-center ">
       <app-edit-button [reportId]="projectId"></app-edit-button>
       <app-delete-button [projectId]="projectId"></app-delete-button>
     </div>
   </div>
 
-  <p class="text-[12px] text-shade-200">{{ formattedDate }}, {{ hoursWorked }}h</p>
-  <p class="text-[12px] text-shade-200 line-clamp-3">{{ description }}</p>
+  <p class="text-sm text-shade-200">{{ formattedDate }}, {{ hoursWorked }}h</p>
+  <p class="text-sm text-shade-200 line-clamp-1">{{ description }}</p>
 </div>
