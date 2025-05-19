@@ -32,4 +32,14 @@ export class TimeReportService {
 
     return this.http.get<any[]>(this.apiUrl, { headers });
   }
+
+  // Fetch specific time report
+  getReportById(id: string): Observable<any> {
+    const token = this.authService.getToken();
+    const headers = new HttpHeaders({
+      Authorization: `Bearer ${token}`,
+    });
+
+    return this.http.get<any>(`${this.apiUrl}/${id}`, { headers });
+  }
 }
