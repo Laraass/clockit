@@ -1,6 +1,8 @@
-<button 
-  (click)="deleteProject()" 
+<button
+  (click)="deleteProject($event)"
   class="flex items-center justify-center text-shade-800 text-xl hover:text-red active:text-red transition-colors duration-300 cursor-pointer"
+  aria-label="Delete report"
+  title="Delete report"
 >
   <span class="iconify" data-icon="weui:delete-outlined"></span>
 </button>

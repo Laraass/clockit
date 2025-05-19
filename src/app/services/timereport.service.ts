@@ -42,4 +42,14 @@ export class TimeReportService {
 
     return this.http.get<any>(`${this.apiUrl}/${id}`, { headers });
   }
+
+  // Delete time report
+  deleteReport(id: string): Observable<any> {
+    const token = this.authService.getToken();
+    const headers = new HttpHeaders({
+      Authorization: `Bearer ${token}`,
+    });
+
+    return this.http.delete(`${this.apiUrl}/${id}`, { headers });
+  }
 }
