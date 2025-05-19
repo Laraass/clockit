@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { TimeReportService } from 'app/services/timereport.service';
 import { BackButtonComponent } from 'app/components/back-button/back-button.component';
@@ -24,6 +24,7 @@ export class SpecificTimereportComponent implements OnInit {
 
   constructor(
     private route: ActivatedRoute,
+    private router: Router,
     private reportService: TimeReportService
   ) {}
 
@@ -43,5 +44,9 @@ export class SpecificTimereportComponent implements OnInit {
         this.errorMessage = err.error?.message || 'Report not found.';
       },
     });
+  }
+
+  handleDeleted(deletedId: string) {
+    this.router.navigate(['/all-reports']);
   }
 }

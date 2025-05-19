@@ -1,4 +1,5 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
+import { TimeReportService } from 'app/services/timereport.service';
 
 @Component({
   selector: 'app-delete-button',
@@ -6,9 +7,22 @@ import { Component, Input, Output, EventEmitter } from '@angular/core';
 })
 export class DeleteButtonComponent {
   @Input() projectId: string = '';
-  @Output() onDelete: EventEmitter<string> = new EventEmitter<string>();
+  @Output() deleted: EventEmitter<string> = new EventEmitter<string>();
 
-  deleteProject() {
-    this.onDelete.emit(this.projectId);
+  constructor(private reportService: TimeReportService) {}
+
+  deleteProject(event: Event) {
+    event.stopPropagation();
+
+    if (!this.projectId) return;
+
+    this.reportService.deleteReport(this.projectId).subscribe({
+      next: () => {
+        this.deleted.emit(this.projectId);
+      },
+      error: (err) => {
+        console.error('Error deleting report', err);
+      },
+    });
   }
 }

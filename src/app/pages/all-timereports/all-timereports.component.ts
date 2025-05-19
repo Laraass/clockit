@@ -32,4 +32,8 @@ export class AllTimereportsComponent implements OnInit {
       },
     });
   }
+
+  handleDeleted(deletedId: string) {
+  this.reports = this.reports.filter(report => report._id !== deletedId);
+}
 }

@@ -12,7 +12,7 @@
 
     <div class="flex gap-2 items-center ">
       <app-edit-button [reportId]="projectId"></app-edit-button>
-      <app-delete-button [projectId]="projectId"></app-delete-button>
+      <app-delete-button [projectId]="projectId" (deleted)="handleDelete($event)"></app-delete-button>
     </div>
   </div>
 

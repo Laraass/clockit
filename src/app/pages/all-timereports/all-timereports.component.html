@@ -14,7 +14,8 @@
       [date]="report.date"
       [hoursWorked]="report.hoursWorked"
       [description]="report.description"
-    ></app-time-report>
+      (deleted)="handleDeleted($event)">
+    </app-time-report>
   </div>
 
   <ng-template #noReports>
