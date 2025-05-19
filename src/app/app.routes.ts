@@ -5,6 +5,7 @@ import { LoginComponent } from './pages/login/login.component';
 import { HomeComponent } from './pages/home/home.component';
 import { CreateTimereportComponent } from './pages/create-timereport/create-timereport.component';
 import { AllTimereportsComponent } from './pages/all-timereports/all-timereports.component';
+import { SpecificTimereportComponent } from './pages/specific-timereport/specific-timereport.component';
 
 export const routes: Routes = [
   {
@@ -17,6 +18,9 @@ export const routes: Routes = [
       { path: 'home', component: HomeComponent },
       { path: 'create-report', component: CreateTimereportComponent },
       { path: 'all-reports', component: AllTimereportsComponent },
+      {
+        path: 'report/:id', component: SpecificTimereportComponent,
+      },
     ],
   },
 ];

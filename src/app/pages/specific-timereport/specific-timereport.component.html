@@ -1,0 +1,19 @@
+<section class="w-full flex flex-col gap-4">
+  <app-back-button page="All time reports"></app-back-button>
+
+  <div class="bg-off-white rounded-md shadow p-4 flex flex-col gap-2">
+    <h1 class="text-xl font-bold break-words whitespace-pre-wrap">{{ report?.project }}</h1>
+
+    <p *ngIf="errorMessage" class="text-red-600 font-medium">
+      {{ errorMessage }}
+    </p>
+
+    <div *ngIf="report" class="flex flex-col gap-2 break-words">
+      <p class="text-shade-800"><strong>Date:</strong> {{ report.date | date: 'longDate' }}</p>
+      <p class="text-shade-800"><strong>Hours worked:</strong> {{ report.hoursWorked }}h</p>
+      <p class="text-shade-800 break-words whitespace-pre-wrap">
+        <strong>Description:</strong> {{ report.description }}
+      </p>
+    </div>
+  </div>
+</section>

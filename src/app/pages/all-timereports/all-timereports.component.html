@@ -9,6 +9,7 @@
   <div *ngIf="reports.length > 0; else noReports" class="flex flex-col gap-4">
     <app-time-report
       *ngFor="let report of reports"
+      [projectId]="report._id"
       [project]="report.project"
       [date]="report.date"
       [hoursWorked]="report.hoursWorked"
