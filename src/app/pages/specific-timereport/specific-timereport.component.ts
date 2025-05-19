@@ -3,11 +3,18 @@ import { ActivatedRoute } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { TimeReportService } from 'app/services/timereport.service';
 import { BackButtonComponent } from 'app/components/back-button/back-button.component';
+import { EditButtonComponent } from 'app/components/edit-button/edit-button.component';
+import { DeleteButtonComponent } from 'app/components/delete-button/delete-button.component';
 
 @Component({
   selector: 'app-specific-timereport',
   standalone: true,
-  imports: [CommonModule, BackButtonComponent],
+  imports: [
+    CommonModule,
+    BackButtonComponent,
+    EditButtonComponent,
+    DeleteButtonComponent,
+  ],
   templateUrl: './specific-timereport.component.html',
 })
 export class SpecificTimereportComponent implements OnInit {
