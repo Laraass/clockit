@@ -35,17 +35,15 @@
       ></app-inputfield>
 
       <div class="flex gap-4">
-        <button
-          type="submit"
-          class="bg-primary text-white py-2 px-4 rounded hover:bg-primary-dark transition"
-        >
-          Save Changes
-        </button>
+        <app-button type="submit" text="Save changes"></app-button>
 
         <button
           type="button"
           (click)="onCancel()"
-          class="bg-gray-300 text-shade-800 py-2 px-4 rounded hover:bg-gray-400 transition"
+          class="bg-gray-300 text-shade-800 py-2 px-4 rounded-md 
+            cursor-pointer hover:shadow-[inset_0_0_10px_5px_#0000006B] 
+            active:shadow-[inset_0_0_10px_5px_#0000006B] transition-all 
+            duration-300"
         >
           Cancel
         </button>

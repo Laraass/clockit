@@ -5,11 +5,12 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { InputfieldComponent } from 'app/components/inputfield/inputfield.component';
 import { TimeReportService } from 'app/services/timereport.service';
 import { AuthService } from 'app/services/auth.service';
+import { ButtonComponent } from 'app/components/button/button.component';
 
 @Component({
   selector: 'app-edit-timereport',
   templateUrl: './edit-timereport.component.html',
-  imports: [InputfieldComponent, CommonModule, FormsModule],
+  imports: [InputfieldComponent, CommonModule, FormsModule, ButtonComponent],
   standalone: true,
 })
 export class EditTimereportComponent implements OnInit {
