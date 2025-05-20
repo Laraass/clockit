@@ -1,5 +1,5 @@
 <div class="p-4 max-w-2xl mx-auto">
-  <h1 class="text-2xl font-bold text-shade-800 mb-4">Edit Time Report</h1>
+  <h1 class="text-2xl font-bold text-shade-800 mb-4">Edit time report</h1>
 
   <form (ngSubmit)="onSubmit()" *ngIf="!loading">
     <div class="flex flex-col gap-4">
@@ -11,27 +11,27 @@
       ></app-inputfield>
 
       <app-inputfield
-        name="description"
-        title="Description"
-        placeholder="Enter description"
-        [(value)]="description"
-        type="description"
+        name="date"
+        title="Date"
+        placeholder="Select date"
+        [(value)]="date"
+        inputType="date"
       ></app-inputfield>
 
       <app-inputfield
         name="hours"
-        title="Hours Worked"
+        title="Hours worked"
         placeholder="Enter hours"
         [(value)]="hours"
         inputType="number"
       ></app-inputfield>
 
       <app-inputfield
-        name="date"
-        title="Date"
-        placeholder="Select date"
-        [(value)]="date"
-        inputType="date"
+        name="description"
+        title="Description"
+        placeholder="Enter description"
+        [(value)]="description"
+        type="description"
       ></app-inputfield>
 
       <div class="flex gap-4">
