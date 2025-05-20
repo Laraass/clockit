@@ -1,0 +1,55 @@
+<div class="p-4 max-w-2xl mx-auto">
+  <h1 class="text-2xl font-bold text-shade-800 mb-4">Edit time report</h1>
+
+  <form (ngSubmit)="onSubmit()" *ngIf="!loading">
+    <div class="flex flex-col gap-4">
+      <app-inputfield
+        name="project"
+        title="Project"
+        placeholder="Enter project name"
+        [(value)]="project"
+      ></app-inputfield>
+
+      <app-inputfield
+        name="date"
+        title="Date"
+        placeholder="Select date"
+        [(value)]="date"
+        inputType="date"
+      ></app-inputfield>
+
+      <app-inputfield
+        name="hours"
+        title="Hours worked"
+        placeholder="Enter hours"
+        [(value)]="hours"
+        inputType="number"
+      ></app-inputfield>
+
+      <app-inputfield
+        name="description"
+        title="Description"
+        placeholder="Enter description"
+        [(value)]="description"
+        type="description"
+      ></app-inputfield>
+
+      <div class="flex gap-4">
+        <app-button type="submit" text="Save changes"></app-button>
+
+        <button
+          type="button"
+          (click)="onCancel()"
+          class="bg-gray-300 text-shade-800 py-2 px-4 rounded-md 
+            cursor-pointer hover:shadow-[inset_0_0_10px_5px_#0000006B] 
+            active:shadow-[inset_0_0_10px_5px_#0000006B] transition-all 
+            duration-300"
+        >
+          Cancel
+        </button>
+      </div>
+    </div>
+  </form>
+
+  <p *ngIf="error" class="text-red-600 mt-4">{{ error }}</p>
+</div>

@@ -47,4 +47,9 @@ export class AuthService {
   private hasToken(): boolean {
     return !!localStorage.getItem('authToken');
   }
+
+  getUserId(): string {
+    const user = JSON.parse(localStorage.getItem('user') || '{}');
+    return user.id || user._id || '';
+  }
 }
