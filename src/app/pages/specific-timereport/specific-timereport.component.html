@@ -5,7 +5,11 @@
     <div class="flex flex-row justify-between gap-4">
       <h1 class="text-xl font-bold break-words whitespace-pre-wrap w-0 flex-1">{{ report?.project }}</h1>
       <div class="flex flex-row gap-3 items-center">
-        <app-edit-button class="size-4"></app-edit-button>
+        <app-edit-button
+          class="size-4"
+          [reportId]="report?._id"
+        ></app-edit-button>
+
         <app-delete-button
           class="size-4"
           [projectId]="report?._id"
