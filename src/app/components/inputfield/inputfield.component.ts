@@ -45,10 +45,4 @@ export class InputfieldComponent {
   togglePasswordVisibility(): void {
     this.showPassword = !this.showPassword;
   }
-
-  // Value change in input field
-  onValueChange(newValue: string) {
-    this.value = newValue;
-    this.valueChange.emit(newValue);
-  }
 }

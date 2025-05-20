@@ -6,8 +6,8 @@
     *ngIf="type === 'description'"
     [attr.name]="name"
     [placeholder]="placeholder"
-    [ngModel]="value"
-    (ngModelChange)="onValueChange($event)"
+    [(ngModel)]="value"
+    (ngModelChange)="valueChange.emit($event)"
     class="w-full p-2 rounded-md bg-off-white placeholder-shade-200 text-shade-800 text-base min-h-16 max-h-64 resize-y shadow-[0px_4px_4px_0px_rgba(0,0,0,0.25)] border-2 border-transparent focus:outline-none focus:border-shade-200"
   ></textarea>
 
@@ -20,8 +20,8 @@
       [attr.name]="name"
       [type]="currentInputType"
       [placeholder]="placeholder"
-      [ngModel]="value"
-      (ngModelChange)="onValueChange($event)"
+      [(ngModel)]="value"
+      (ngModelChange)="valueChange.emit($event)"
       class="flex-1 bg-transparent placeholder-shade-200 text-shade-600 focus:outline-none"
     />
     <span
@@ -40,8 +40,8 @@
     [attr.name]="name"
     type="number"
     [placeholder]="placeholder"
-    [ngModel]="value"
-    (ngModelChange)="onValueChange($event)"
+    [(ngModel)]="value"
+    (ngModelChange)="valueChange.emit($event)"
     step="0.1"
     class="w-full p-2 rounded-md bg-off-white placeholder-shade-200 text-shade-800 shadow-[0px_4px_4px_0px_rgba(0,0,0,0.25)] border-2 border-transparent focus:outline-none focus:border-shade-200"
   />
@@ -52,8 +52,8 @@
     [attr.name]="name"
     type="date"
     [placeholder]="placeholder"
-    [ngModel]="value"
-    (ngModelChange)="onValueChange($event)"
+    [(ngModel)]="value"
+    (ngModelChange)="valueChange.emit($event)"
     class="w-full p-2 rounded-md bg-off-white placeholder-shade-200 text-shade-800 shadow-[0px_4px_4px_0px_rgba(0,0,0,0.25)] border-2 border-transparent focus:outline-none focus:border-shade-200"
   />
 
@@ -66,8 +66,8 @@
     [attr.name]="name"
     type="text"
     [placeholder]="placeholder"
-    [ngModel]="value"
-    (ngModelChange)="onValueChange($event)"
+    [(ngModel)]="value"
+    (ngModelChange)="valueChange.emit($event)"
     class="w-full p-2 rounded-md bg-off-white placeholder-shade-200 text-shade-800 shadow-[0px_4px_4px_0px_rgba(0,0,0,0.25)] border-2 border-transparent focus:outline-none focus:border-shade-200"
   />
 </div>
