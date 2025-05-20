@@ -1,27 +1,46 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { TimeReportService } from 'app/services/timereport.service';
 import { TimeReportComponent } from 'app/components/time-report/time-report.component';
 import { BackButtonComponent } from 'app/components/back-button/back-button.component';
+import { Router, NavigationEnd } from '@angular/router';
+import { Subscription } from 'rxjs';
+import { filter } from 'rxjs/operators';
 
 @Component({
   selector: 'app-all-timereports',
   standalone: true,
-  imports: [
-    CommonModule,
-    TimeReportComponent,
-    BackButtonComponent,
-    TimeReportComponent,
-  ],
+  imports: [CommonModule, TimeReportComponent, BackButtonComponent],
   templateUrl: './all-timereports.component.html',
 })
-export class AllTimereportsComponent implements OnInit {
+export class AllTimereportsComponent implements OnInit, OnDestroy {
   reports: any[] = [];
   errorMessage: string | null = null;
+  private routerSubscription!: Subscription;
 
-  constructor(private reportService: TimeReportService) {}
+  constructor(
+    private reportService: TimeReportService,
+    private router: Router
+  ) {}
 
   ngOnInit(): void {
+    this.loadReports();
+
+    // Load reports after changes
+    this.routerSubscription = this.router.events
+      .pipe(filter((event) => event instanceof NavigationEnd))
+      .subscribe(() => {
+        this.loadReports();
+      });
+  }
+
+  ngOnDestroy(): void {
+    if (this.routerSubscription) {
+      this.routerSubscription.unsubscribe();
+    }
+  }
+
+  loadReports(): void {
     this.reportService.getAllReports().subscribe({
       next: (data) => {
         this.reports = data;
@@ -34,6 +53,6 @@ export class AllTimereportsComponent implements OnInit {
   }
 
   handleDeleted(deletedId: string) {
-  this.reports = this.reports.filter(report => report._id !== deletedId);
-}
+    this.reports = this.reports.filter((report) => report._id !== deletedId);
+  }
 }
