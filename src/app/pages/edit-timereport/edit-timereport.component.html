@@ -1,1 +1,57 @@
-<p>edit-timereport works!</p>
+<div class="p-4 max-w-2xl mx-auto">
+  <h1 class="text-2xl font-bold text-shade-800 mb-4">Edit Time Report</h1>
+
+  <form (ngSubmit)="onSubmit()" *ngIf="!loading">
+    <div class="flex flex-col gap-4">
+      <app-inputfield
+        name="project"
+        title="Project"
+        placeholder="Enter project name"
+        [(value)]="project"
+      ></app-inputfield>
+
+      <app-inputfield
+        name="description"
+        title="Description"
+        placeholder="Enter description"
+        [(value)]="description"
+        type="description"
+      ></app-inputfield>
+
+      <app-inputfield
+        name="hours"
+        title="Hours Worked"
+        placeholder="Enter hours"
+        [(value)]="hours"
+        inputType="number"
+      ></app-inputfield>
+
+      <app-inputfield
+        name="date"
+        title="Date"
+        placeholder="Select date"
+        [(value)]="date"
+        inputType="date"
+      ></app-inputfield>
+
+      <div class="flex gap-4">
+        <button
+          type="submit"
+          class="bg-primary text-white py-2 px-4 rounded hover:bg-primary-dark transition"
+        >
+          Save Changes
+        </button>
+
+        <button
+          type="button"
+          (click)="onCancel()"
+          class="bg-gray-300 text-shade-800 py-2 px-4 rounded hover:bg-gray-400 transition"
+        >
+          Cancel
+        </button>
+      </div>
+    </div>
+  </form>
+
+  <p *ngIf="error" class="text-red-600 mt-4">{{ error }}</p>
+</div>
