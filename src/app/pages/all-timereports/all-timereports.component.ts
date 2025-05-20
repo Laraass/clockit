@@ -6,11 +6,17 @@ import { BackButtonComponent } from 'app/components/back-button/back-button.comp
 import { Router, NavigationEnd } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { filter } from 'rxjs/operators';
+import { ButtonComponent } from 'app/components/button/button.component';
 
 @Component({
   selector: 'app-all-timereports',
   standalone: true,
-  imports: [CommonModule, TimeReportComponent, BackButtonComponent],
+  imports: [
+    CommonModule,
+    TimeReportComponent,
+    BackButtonComponent,
+    ButtonComponent,
+  ],
   templateUrl: './all-timereports.component.html',
 })
 export class AllTimereportsComponent implements OnInit, OnDestroy {
@@ -22,6 +28,11 @@ export class AllTimereportsComponent implements OnInit, OnDestroy {
     private reportService: TimeReportService,
     private router: Router
   ) {}
+
+  // Navigate to create time report page
+  goToCreateReport(): void {
+    this.router.navigate(['/create-report']);
+  }
 
   ngOnInit(): void {
     this.loadReports();
