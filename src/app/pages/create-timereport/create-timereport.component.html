@@ -41,13 +41,16 @@
     <div class="flex flex-row gap-3 items-center">
       <app-button text="Create time report" type="submit"></app-button>
 
-      <span
-        id="cancel"
-        class="text-shade-800 hover:text-red-600 cursor-pointer hover:underline active:underline"
-        (click)="onCancel()"
-      >
-        Cancel
-      </span>
+      <button
+          type="button"
+          (click)="onCancel()"
+          class="bg-gray-300 text-shade-800 py-2 px-4 rounded-md 
+            cursor-pointer hover:shadow-[inset_0_0_10px_5px_#0000006B] 
+            active:shadow-[inset_0_0_10px_5px_#0000006B] transition-all 
+            duration-300"
+        >
+          Cancel
+      </button>
     </div>
   </form>
 </section>
