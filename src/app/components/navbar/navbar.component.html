@@ -2,33 +2,61 @@
   <div class="p-4 flex items-center justify-between h-16">
     <!-- Logo -->
     <div class="flex items-center">
-      <a routerLink="/" class="cursor-pointer">
+      <a [routerLink]="isLoggedIn ? '/home' : '/login'" class="cursor-pointer">
         <img src="/clockit_logo.svg" alt="Logo" class="h-7 w-auto" />
       </a>
     </div>
 
-    <!-- Desktop nav -->
-    <div class="hidden md:flex gap-4 items-baseline" id="navbar-desktop">
-      <button routerLink="/" class="nav-btn hover:underline cursor-pointer">Home</button>
-      <button routerLink="/reports" class="nav-btn hover:underline cursor-pointer">Time reports</button>
+    <!-- Desktop nav (only if logged in) -->
+    <div
+      *ngIf="isLoggedIn"
+      class="hidden md:flex gap-4 items-baseline"
+      id="navbar-desktop"
+    >
+      <a routerLink="/home" class="nav-btn hover:underline cursor-pointer"
+        >Home</a
+      >
+      <a
+        routerLink="/all-reports"
+        class="nav-btn hover:underline cursor-pointer"
+        >Time reports</a
+      >
+      <button (click)="logout()" class="nav-btn hover:underline cursor-pointer">
+        Log out
+      </button>
     </div>
 
-    <!-- Mobile toggle -->
-    <button (click)="toggleMobileMenu()" class="md:hidden">
-      <span class="iconify text-shade-800 size-12 cursor-pointer" data-icon="lineicons:menu-hamburger-1"></span>
+    <!-- Mobile toggle (only if logged in) -->
+    <button *ngIf="isLoggedIn" (click)="toggleMobileMenu()" class="md:hidden">
+      <span
+        class="iconify text-shade-800 size-12 cursor-pointer"
+        data-icon="lineicons:menu-hamburger-1"
+      ></span>
     </button>
   </div>
 
-  <!-- Mobile nav -->
-  <div [ngClass]="{
+  <!-- Mobile nav (only if logged in) -->
+  <div
+    *ngIf="isLoggedIn"
+    [ngClass]="{
       'max-h-32 opacity-100': isMenuOpen,
       'max-h-0 opacity-0': !isMenuOpen
     }"
     id="navbar-mobile"
-    class="md:hidden bg-shade-900 overflow-hidden transition-all duration-500">
+    class="md:hidden bg-shade-900 overflow-hidden transition-all duration-500"
+  >
     <div class="flex flex-col gap-3 p-4">
-      <button routerLink="/" class="nav-btn hover:underline cursor-pointer">Home</button>
-      <button routerLink="/reports" class="nav-btn hover:underline cursor-pointer">Time reports</button>
+      <a routerLink="/home" class="nav-btn hover:underline cursor-pointer"
+        >Home</a
+      >
+      <a
+        routerLink="/all-reports"
+        class="nav-btn hover:underline cursor-pointer"
+        >Time reports</a
+      >
+      <button (click)="logout()" class="nav-btn hover:underline cursor-pointer">
+        Log out
+      </button>
     </div>
   </div>
 </nav>
