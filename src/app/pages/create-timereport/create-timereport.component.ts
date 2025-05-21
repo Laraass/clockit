@@ -55,7 +55,14 @@ export class CreateTimereportComponent {
       return;
     }
 
-    this.reportService.createReport(this.formData).subscribe({
+    const dataToSend = {
+      ...this.formData,
+      hoursWorked: Number(this.formData.hoursWorked),
+    };
+
+    console.log('Data to send:', dataToSend);
+
+    this.reportService.createReport(dataToSend).subscribe({
       next: (res) => {
         console.log('Time report created:', res);
         this.router.navigate(['/home']);

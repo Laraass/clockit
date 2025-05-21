@@ -52,7 +52,7 @@ export class AllTimereportsComponent implements OnInit, OnDestroy {
   }
 
   loadReports(): void {
-    this.reportService.getAllReports().subscribe({
+    this.reportService.getMyReports().subscribe({
       next: (data) => {
         this.reports = data;
       },
