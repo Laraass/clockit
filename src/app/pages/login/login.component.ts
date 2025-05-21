@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { AuthService } from 'app/services/auth.service';
-import { Router } from '@angular/router';
+import { Router, RouterModule } from '@angular/router';
 import { ButtonComponent } from 'app/components/button/button.component';
 import { InputfieldComponent } from 'app/components/inputfield/inputfield.component';
 import { CommonModule } from '@angular/common';
@@ -11,7 +11,7 @@ import { LoginCredentials, LoginResponse } from 'app/services/auth.types';
   selector: 'app-login',
   templateUrl: './login.component.html',
   standalone: true,
-  imports: [InputfieldComponent, ButtonComponent, CommonModule, FormsModule],
+  imports: [InputfieldComponent, ButtonComponent, CommonModule, FormsModule, RouterModule],
 })
 export class LoginComponent {
   user: LoginCredentials = {
