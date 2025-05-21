@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { AuthService } from 'app/services/auth.service';
-import { Router } from '@angular/router';
+import { Router, RouterModule } from '@angular/router';
 import { ButtonComponent } from 'app/components/button/button.component';
 import { InputfieldComponent } from 'app/components/inputfield/inputfield.component';
 import { CommonModule } from '@angular/common';
@@ -10,7 +10,7 @@ import { FormsModule } from '@angular/forms';
   selector: 'app-register',
   templateUrl: './register.component.html',
   standalone: true,
-  imports: [InputfieldComponent, ButtonComponent, CommonModule, FormsModule],
+  imports: [InputfieldComponent, ButtonComponent, CommonModule, FormsModule, RouterModule],
 })
 export class RegisterComponent {
   user = {
