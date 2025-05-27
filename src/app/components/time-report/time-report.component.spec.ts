@@ -1,5 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { TimeReportComponent } from './time-report.component';
 
 describe('TimeReportComponent', () => {
@@ -8,7 +8,7 @@ describe('TimeReportComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [TimeReportComponent]
+      imports: [TimeReportComponent, HttpClientTestingModule]
     })
     .compileComponents();
 
@@ -20,4 +20,13 @@ describe('TimeReportComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('should render project title in h2', () => {
+    component.project = 'Test Project';
+    fixture.detectChanges();
+
+    const h2 = fixture.nativeElement.querySelector('h2');
+    expect(h2.textContent).toContain('Test Project');
+  });
+
 });
